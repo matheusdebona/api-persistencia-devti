@@ -9,6 +9,6 @@ import com.matheusdebona.devti_persistencia.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-  public List<Cliente> findByCidade(Cidade cidade);
+  public List<Cliente> findByCidade(Cidade c);
 
 }

@@ -46,7 +46,7 @@ public class ClienteResource {
   }
 
   @GetMapping("/buscaporcidade/{cidade}")
-  public List<Cliente> buscaPorCidade(@PathVariable("cidade") Cidade cidade) {
-    return service.buscarPorCidade(cidade);
+  public List<Cliente> buscaPorCidade(@PathVariable("cidade") Cidade c) {
+    return service.buscarPorCidade(c);
   }
 }

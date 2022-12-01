@@ -34,7 +34,7 @@ public class ClienteService {
     }
   }
 
-  public List<Cliente> buscarPorCidade(Cidade cidade) {
-    return rep.findByCidade(cidade);
+  public List<Cliente> buscarPorCidade(Cidade c) {
+    return rep.findByCidade(c);
   }
 }
