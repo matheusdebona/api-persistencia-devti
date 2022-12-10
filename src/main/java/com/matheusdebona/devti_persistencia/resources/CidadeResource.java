@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.matheusdebona.devti_persistencia.model.Cidade;
 import com.matheusdebona.devti_persistencia.services.CidadeService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/cidade")
 public class CidadeResource {
@@ -24,28 +26,33 @@ public class CidadeResource {
   CidadeService service;
 
   @DeleteMapping("/{id}")
+  @ApiOperation(value = "Deleta uma Cidade no banco de dados")
   public void excluir(@PathVariable("id") int id) {
     service.excluir(id);
   }
 
   @PutMapping
+  @ApiOperation(value = "Altera uma Cidade no banco de dados")
   public Cidade alterar(@RequestBody Cidade c, @RequestParam("id") int id) {
     c.setId(id);
     return service.alterar(c);
   }
 
   @PostMapping
+  @ApiOperation(value = "Insere uma Cidade no banco de dados")
   public Cidade inserirCidade(@RequestBody Cidade c) {
     return service.incluir(c);
 
   }
 
   @GetMapping
+  @ApiOperation(value = "Lista todas as Cidades no banco de dados")
   public List<Cidade> listarTodas() {
     return service.listarTodas();
   }
 
   @GetMapping("/buscauf/{uf}")
+  @ApiOperation(value = "Busca uma Cidade no banco de dados pela UF")
   public List<Cidade> listarPorUf(@PathVariable("uf") String uf) {
     return service.buscarPorUf(uf);
   }

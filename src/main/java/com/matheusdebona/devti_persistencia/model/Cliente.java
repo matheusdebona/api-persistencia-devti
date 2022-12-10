@@ -9,23 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Cliente implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @ApiModelProperty(value = "Chave primária do Cliente")
   private Integer id;
 
   @Column
+  @ApiModelProperty(value = "Nome do Cliente")
   private String nome;
 
   @Column
+  @ApiModelProperty(value = "Sexo do Cliente")
   private String sexo;
 
   @Column
+  @ApiModelProperty(value = "Idade do Cliente")
   private Integer idade;
 
   @ManyToOne
+  @ApiModelProperty(value = "Cidade do Cliente")
   private Cidade cidade;
 
   public Cliente() {

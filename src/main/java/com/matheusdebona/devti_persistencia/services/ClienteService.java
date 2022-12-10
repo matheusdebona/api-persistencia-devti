@@ -1,5 +1,6 @@
 package com.matheusdebona.devti_persistencia.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,16 @@ public class ClienteService {
 
   public List<Cliente> buscarPorCidade(Cidade c) {
     return rep.findByCidade(c);
+  }
+
+  public List<Cliente> procuraPorNomeCidade(String nome) {
+    List<Cliente> c = rep.findAll();
+    List<Cliente> ce = new ArrayList<>();
+    for (Cliente cliente : c) {
+      if ((cliente.getCidade()).getNome().toString().equals(nome)) {
+        ce.add(cliente);
+      }
+    }
+    return ce;
   }
 }
